@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/ac387c892cb84cb3bdc687be2763d31d/artifacts
+deleted_time: 1749423366276
+end_time: 1749423138078
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: ac387c892cb84cb3bdc687be2763d31d
+run_name: LSTM
+run_uuid: ac387c892cb84cb3bdc687be2763d31d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749422919112
+status: 3
+tags: []
+user_id: Djamel

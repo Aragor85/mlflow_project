@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/731b18312da94bca949ae8bc8b70a7d9/artifacts
+deleted_time: 1749324324878
+end_time: 1749255451848
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 731b18312da94bca949ae8bc8b70a7d9
+run_name: LogisticRegression
+run_uuid: 731b18312da94bca949ae8bc8b70a7d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749255451759
+status: 4
+tags: []
+user_id: Djamel

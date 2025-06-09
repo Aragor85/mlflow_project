@@ -1,0 +1,21 @@
+artifact_path: Bidirectional_LSTM_Model
+flavors:
+  python_function:
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.tensorflow
+    python_version: 3.10.16
+  tensorflow:
+    code: null
+    data: data
+    keras_version: 2.13.0
+    model_type: keras
+    save_format: tf
+mlflow_version: 2.22.0
+model_size_bytes: 33997207
+model_uuid: ce5939a14fa54813af0cc2e016cefa9e
+prompts: null
+run_id: 8d1c6050ebd449d8ad9e1b2681efac7b
+utc_time_created: '2025-06-09 03:00:01.310110'

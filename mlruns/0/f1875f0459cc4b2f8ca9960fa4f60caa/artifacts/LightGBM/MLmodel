@@ -1,0 +1,21 @@
+artifact_path: LightGBM
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.16
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+mlflow_version: 2.22.0
+model_size_bytes: 2416588
+model_uuid: baea7e06ca464372b9a4713772d9e07e
+prompts: null
+run_id: f1875f0459cc4b2f8ca9960fa4f60caa
+utc_time_created: '2025-06-08 10:55:50.933707'

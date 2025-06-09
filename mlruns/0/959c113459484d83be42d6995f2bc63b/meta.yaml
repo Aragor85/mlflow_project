@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/959c113459484d83be42d6995f2bc63b/artifacts
+deleted_time: 1749423177175
+end_time: 1749413852762
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 959c113459484d83be42d6995f2bc63b
+run_name: USE_MLP
+run_uuid: 959c113459484d83be42d6995f2bc63b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749413834774
+status: 3
+tags: []
+user_id: Djamel
