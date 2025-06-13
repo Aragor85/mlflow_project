@@ -75,5 +75,5 @@ def train_lstm():
             "roc_auc": roc_auc
         })
 
-        mlflow.tensorflow.log_model(model, "Bidirectional_LSTM_Model")
+        mlflow.keras.log_model(model, "Bidirectional_LSTM_Model")
         print(f"✅ Bidirectional LSTM terminé avec acc={acc:.2f} | f1={f1:.2f} | auc={roc_auc:.2f}")
