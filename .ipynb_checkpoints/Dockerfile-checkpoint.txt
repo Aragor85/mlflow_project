@@ -1,0 +1,19 @@
+# Dockerfile
+FROM python:3.10
+
+# Crée un dossier de travail
+WORKDIR /app
+
+# Copie les fichiers nécessaires
+COPY ./app ./app
+COPY ./requirements.txt ./requirements.txt
+
+# Installation des dépendances
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Exposer le port pour FastAPI
+EXPOSE 8000
+
+# Commande pour lancer l’API
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
