@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.18, pytest-8.4.0, pluggy-1.6.0 -- F:\Aragor\envs\Module_7\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\Djamel\Desktop\Formation\module_7\mlflow_project
+plugins: anyio-3.7.1
+collecting ... collected 3 items
+
+tests/test_api.py::test_home PASSED                                      [ 33%]
+tests/test_api.py::test_predict_positive PASSED                          [ 66%]
+tests/test_api.py::test_predict_negative PASSED                          [100%]
+
+============================== warnings summary ===============================
+F:\Aragor\envs\Module_7\lib\site-packages\tensorflow_hub\__init__.py:61
+  F:\Aragor\envs\Module_7\lib\site-packages\tensorflow_hub\__init__.py:61: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+    from pkg_resources import parse_version
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 3 passed, 1 warning in 23.62s ========================
