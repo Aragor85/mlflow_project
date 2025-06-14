@@ -3,7 +3,7 @@ name: Deploy FastAPI to Azure Web App
 on:
   push:
     branches:
-      - main  # Déclenche sur push dans main (ou change pour "master")
+      - analyse_sentiments
 
 jobs:
   build-and-deploy:
@@ -23,14 +23,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r app/requirements.txt
 
-    - name: Zip application files
+    - name: Zip app directory for deployment
       run: |
         zip -r app.zip app
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: Module-7      # ← 🔁 à personnaliser
-        slot-name: production
+        app-name: Module-7  # ⚠️ Mets le nom exact depuis Azure (Maj/min)
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: app.zip
