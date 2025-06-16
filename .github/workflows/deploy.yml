@@ -1,9 +1,10 @@
-name: Deploy FastAPI to Azure Web App
+name: Deploy FastAPI to Azure Web App - Module-7
 
 on:
   push:
     branches:
-      - analyse_sentiments
+      - analyse_sentiments  # Branche qui déclenche le déploiement
+  workflow_dispatch:        # Permet de lancer manuellement depuis GitHub
 
 jobs:
   build-and-deploy:
@@ -30,7 +31,7 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'module-7-bgg7hvanhddthjh4'        # ← Doit matcher exactement le nom de votre App Service
-          slot-name: 'production'              # ← Laissez vide pour le slot “production” par défaut
+          app-name: 'Module-7'  # ← EXACTEMENT comme dans Azure (respecter les majuscules/minuscules)
+          slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: app.zip
