@@ -1,4 +1,4 @@
-name: Deploy FastAPI to Azure Web App 
+name: Deploy FastAPI to Azure Web App
 
 on:
   push:
@@ -24,12 +24,13 @@ jobs:
           pip install -r app/requirements.txt
 
       - name: Zip application files
-        run: zip -r app.zip app
+        run: |
+          zip -r app.zip app
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: Module-7  # ✅ Nom EXACT de l’app Azure
-          
+          app-name: Module-7
+          slot-name: production
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: app.zip  # ✅ Fichier déployé
+          package: app.zip
