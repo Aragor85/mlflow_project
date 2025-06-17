@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r app/requirements.txt
 
-      - name: name: Zip application files
+      - name: Zip application files
         run: zip -r release.zip . -x "venv/*" ".venv/*" "__pycache__/*"
 
       - name: Upload artifact for deployment
