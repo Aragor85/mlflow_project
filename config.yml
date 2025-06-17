@@ -16,7 +16,7 @@ grid_search:
 
 use:
   model_url: "https://tfhub.dev/google/universal-sentence-encoder/4"
-  classifier_type: "mlp"  # ou "logistic_regression"
+  classifier_type: "mlp"
   mlp:
     dense_units: 128
     dropout: 0.3
