@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r app/requirements.txt
 
-      - name: Zip only the app directory
+      - name: Zip the entire app directory
         run: |
           zip -r release.zip app -x "app/venv/*" "app/__pycache__/*"
 
@@ -65,4 +65,4 @@ jobs:
         with:
           app-name: 'Module-7'
           slot-name: 'Production'
-          package: app  # On déploie le dossier `app/` extrait
+          package: app
