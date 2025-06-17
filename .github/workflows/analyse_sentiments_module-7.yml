@@ -1,33 +1,28 @@
-name: Build and deploy Python app to Azure Web App - Module-7
+name: Build & Deploy Python app to Azure Web App - Module-7
 
 on:
   push:
-    branches:
-      - analyse_sentiments
+    branches: [ analyse_sentiments ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python version
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Install dependencies
-        run: pip install -r app/requirements.txt
+        run: pip install --upgrade pip && pip install -r requirements.txt
 
-      - name: Zip the entire app directory
-        run: |
-          zip -r release.zip app -x "app/venv/*" "app/__pycache__/*"
+      - name: Zip application files
+        run: zip -r release.zip . -x "venv/*" ".venv/*" "__pycache__/*"
 
-      - name: Upload artifact for deployment
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: python-app
@@ -36,33 +31,27 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write
-      contents: read
-
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: python-app
 
-      - name: Unzip artifact
+      - name: Unzip
         run: unzip release.zip
 
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A415346F1F404B70A5ABFA26DA53F5A6 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_43945BBA75B6492DA124B7CFCAF9475A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_477F0A2C777C4B36BA34900A28BE5DA6 }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Module-7'
-          slot-name: 'Production'
-          package: app
+          app-name: Module-7
+          slot-name: production
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: .
+
