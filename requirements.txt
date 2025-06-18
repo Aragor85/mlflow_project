@@ -9,3 +9,6 @@ lightgbm==3.3.5
 numpy==1.24.3
 pandas==2.2.3
 transformers==4.52.4
+opencensus
+opencensus-ext-azure
+opencensus-ext-requests
