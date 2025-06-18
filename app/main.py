@@ -1,4 +1,5 @@
 # app/main.py
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from app.model_utils import load_model, predict_sentiment
