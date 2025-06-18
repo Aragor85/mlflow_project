@@ -23,7 +23,7 @@ model, use_model = load_model()
 
 # --- Schémas d’entrée ---
 class TextInput(BaseModel):
-    text: str = Field(..., alias="tweet", description="Please insert your tweet about Air Paradis")
+    text: str
 
 class Feedback(BaseModel):
     text: str
