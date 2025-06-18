@@ -19,3 +19,5 @@ def read_root():
 def predict(input: TextInput):
     prediction = predict_sentiment(model, use_model, input.text)
     return {"prediction": prediction}
+
+
