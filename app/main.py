@@ -10,7 +10,7 @@ app = FastAPI()
 model, use_model = load_model()
 
 class TextInput(BaseModel):
-    text: str
+    Tweet: str
 
 @app.get("/")
 def read_root():
@@ -18,7 +18,7 @@ def read_root():
 
 @app.post("/predict")
 def predict(input: TextInput):
-    prediction = predict_sentiment(model, use_model, input.text)
+    prediction = predict_sentiment(model, use_model, input.Tweet)
     return {"prediction": prediction}
 
 
