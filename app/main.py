@@ -46,17 +46,22 @@ def predict(input: TextInput):
 
 @app.post("/feedback")
 def feedback(feedback: Feedback):
-    logger.warning(
-        "⚠️ Feedback utilisateur : mauvaise prédiction du modèle.",
-        extra={
-            "custom_dimensions": {
-                "input_text": feedback.Tweet,
-                "predicted_label": feedback.predicted_label,
-                "correct_label": feedback.correct_label,
-                "type": "model_misclassification"
+    if feedback.predicted_label != feedback.correct_label:
+        logger.warning(
+            " Feedback utilisateur : mauvaise prédiction du modèle.",
+            extra={
+                "custom_dimensions": {
+                    "input_text": feedback.Tweet,
+                    "predicted_label": feedback.predicted_label,
+                    "correct_label": feedback.correct_label,
+                    "type": "model_misclassification"
+                }
             }
+        )
+        return {
+            "message": "Merci pour votre retour. Votre signalement a été enregistré pour améliorer le modèle."
         }
-    )
-    return {
-        "message": "Merci pour votre retour. Votre signalement a été enregistré pour améliorer le modèle."
-    }
+    else:
+        return {
+            "message": "Merci pour votre retour. La prédiction était correcte"
+        }
