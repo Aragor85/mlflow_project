@@ -1,17 +1,40 @@
 # app/main.py
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 from app.model_utils import load_model, predict_sentiment
+from typing import Literal
+import logging
 
+# --- Configuration Application Insights ---
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+# Créer un logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Remplacer par ta vraie Instrumentation Key
+logger.addHandler(
+    AzureLogHandler(
+        connection_string="InstrumentationKey=0fdd4361-7b38-476f-a2b5-eefc99fefbb0"
+    )
+)
+
+# --- Initialisation FastAPI + chargement modèle ---
 app = FastAPI()
 
-# Chargement modèle + encodeur USE
+# Charger modèle + Universal Sentence Encoder
 model, use_model = load_model()
 
+# --- Schémas Pydantic ---
 class TextInput(BaseModel):
     Tweet: str
 
+class Feedback(BaseModel):
+    Tweet: str
+    predicted_label: Literal["positif", "negatif"]
+    correct_label: Literal["positif", "negatif"]
+
+# --- Routes ---
 @app.get("/")
 def read_root():
     return {"message": "Bienvenue dans l'API d'analyse des sentiments (modèle USE)"}
@@ -21,4 +44,19 @@ def predict(input: TextInput):
     prediction = predict_sentiment(model, use_model, input.Tweet)
     return {"prediction": prediction}
 
-
+@app.post("/feedback")
+def feedback(feedback: Feedback):
+    logger.warning(
+        "⚠️ Feedback utilisateur : mauvaise prédiction du modèle.",
+        extra={
+            "custom_dimensions": {
+                "input_text": feedback.Tweet,
+                "predicted_label": feedback.predicted_label,
+                "correct_label": feedback.correct_label,
+                "type": "model_misclassification"
+            }
+        }
+    )
+    return {
+        "message": "Merci pour votre retour. Votre signalement a été enregistré pour améliorer le modèle."
+    }
