@@ -2,7 +2,8 @@
 
 > Cet article est disponible en ligne : [https://dev.to/davidscanu/analyse-de-sentiments-de-tweets-grace-au-deep-learning-une-approche-mlops-3ib7](https://dev.to/davidscanu/analyse-de-sentiments-de-tweets-grace-au-deep-learning-une-approche-mlops-3ib7)
 
-![People tweeting](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9g3e3jg9j9o56ifjz9af.png)
+![Les sentiments a travers les Tweet](images/Tweet.png)
+
 
 *Cet article a été rédigé dans le cadre du projet : Réalisez une analyse de sentiments grâce au Deep Learning du parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) d'[OpenClassrooms](https://openclassrooms.com/f). Les données utilisées sont issues du jeu de données open source [Sentiment140](https://www.kaggle.com/datasets/kazanova/sentiment140). Le code source complet est disponible sur [GitHub](https://github.com/DavidScanu/oc-ai-engineer-p07-analyse-sentiments-deep-learning).*
 
