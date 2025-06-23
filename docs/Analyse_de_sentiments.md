@@ -1,21 +1,22 @@
-# 💬❤️ Analyse de Sentiments de Tweets grâce au Deep Learning : Une Approche MLOps
+# Analyse de Sentiments grâce au Deep Learning avec l'approche MLOps
 
 > Cet article est disponible en ligne : [https://dev.to/davidscanu/analyse-de-sentiments-de-tweets-grace-au-deep-learning-une-approche-mlops-3ib7](https://dev.to/davidscanu/analyse-de-sentiments-de-tweets-grace-au-deep-learning-une-approche-mlops-3ib7)
 
 ![Les sentiments a travers les Tweet](images/Tweet.png)
 
 
-*Cet article a été rédigé dans le cadre du projet : Réalisez une analyse de sentiments grâce au Deep Learning du parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) d'[OpenClassrooms](https://openclassrooms.com/f). Les données utilisées sont issues du jeu de données open source [Sentiment140](https://www.kaggle.com/datasets/kazanova/sentiment140). Le code source complet est disponible sur [GitHub](https://github.com/DavidScanu/oc-ai-engineer-p07-analyse-sentiments-deep-learning).*
+*Cet article a été rédigé dans le cadre du projet : Réalisez une analyse de sentiments grâce au Deep Learning du parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer). Les données utilisées sont issues du jeu de données open source [Sentiment140](https://www.kaggle.com/datasets/kazanova/sentiment140). Le code source complet est disponible sur [(https://github.com/Aragor85/mlflow_projectGitHub)]*
 
-> 🎓 OpenClassrooms • Parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) | 👋 *Étudiant* : [David Scanu](https://www.linkedin.com/in/davidscanu14/)
+> 🎓 OpenClassrooms • Parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) | 👋 *Étudiant* : Djamel FERGUEN
 
-![Application De prédiction de tweet d'Air Paradis](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/slbftyfpuhwkis2qr5w4.png)
+![API: Analyse des sentiments a travers les Tweet](images/Tweet.png)
+
 
 ## 🌐 Contexte et problématique métier 
 
-Dans le cadre de ma formation d'[AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) chez [OpenClassrooms](https://openclassrooms.com/fr/), ce projet s'inscrit dans un scénario professionnel où j'interviens en tant qu'ingénieur IA chez MIC (Marketing Intelligence Consulting), entreprise de conseil spécialisée en marketing digital.
+Ce projet s'inscrit dans un scénario professionnel où j'interviens en tant qu'ingénieur IA chez MIC (Marketing Intelligence Consulting), entreprise de conseil spécialisée sur les problématiqus de marketing digital.
 
-Notre client, **✈️ Air Paradis** (compagnie aérienne), souhaite **anticiper les bad buzz sur les réseaux sociaux**. La mission consiste à développer un produit IA permettant de prédire le sentiment associé à un tweet, afin d'améliorer la gestion de sa réputation en ligne.
+Notre client,  **Air Paradis** (compagnie aérienne), souhaite **anticiper les bad buzz sur les réseaux sociaux**. La mission consiste à développer un produit IA permettant de prédire le sentiment associé à un tweet, afin d'améliorer son image de marque en ligne.
 
 ## ⚡ Mission
 
@@ -23,34 +24,56 @@ Notre client, **✈️ Air Paradis** (compagnie aérienne), souhaite **anticiper
 
 Créer un prototype fonctionnel d'un modèle d'analyse de sentiments pour tweets selon trois approches différentes :
 
-1. **Modèle sur mesure simple** : Approche classique (régression logistique) pour une prédiction rapide
-2. **Modèle sur mesure avancé** : Utilisation de réseaux de neurones profonds avec différents word embeddings
-3. **Modèle avancé BERT** : Exploration de l'apport en performance d'un modèle BERT
+1. **Modèle simple** : Approche classique (régression logistique,Randomforest,LightGBM) pour une prédiction rapide
+2. **Modèle avancé** : Utilisation de réseaux de neurones profonds avec différents word embeddings ( USE, Bidirectional_LSTM et BERT)
+3. **Modèle avancé BERT** : Le modèle BERT est bien intégré dans le projet. Cependant, en raison de limitations matérielles (notamment l'absence de GPU et une configuration uniquement sur CPU), l'entraînement s'est avéré extrêmement lent. Face à un temps de calcul estimé à 10 heures par Epoch, j'ai décidé d'interrompre l'exécution du modèle
 
-Cette mission implique également la mise en œuvre d'une **démarche MLOps complète** :
+Cette mission implique également la mise en place d'une **démarche MLOps complète pour le deploiment sur le Cloud** :
 
 - Utilisation de **MLFlow pour le tracking des expérimentations et le stockage des modèles**.
-- Création d'un **pipeline de déploiement continu** (Git + Github + plateforme Cloud).
+- Création d'un **pipeline de déploiement continu (Git + Github + plateforme Cloud Azure)**.
 - Intégration de **tests unitaires automatisés**.
-- Mise en place d'un **suivi de performance en production** via Azure A[pplication Insight](https://learn.microsoft.com/fr-fr/azure/azure-monitor/app/app-insights-overview).
+- Mise en place d'un **suivi de performance du modéle en production** via Azure A[pplication Insight](https://learn.microsoft.com/fr-fr/azure/azure-monitor/app/app-insights-overview).
 
-## 🔧 Technologies utilisées
+## 🔧 Environnement technique
 
-- **Langages** : Python
-- **Bibliothèques ML/DL** : Scikit-learn, TensorFlow/Keras, Transformers (BERT)
+- **Distribution** : Anaconda ver. XX.XX
+- **Langages** : Python ver. X.XX
+- **Bibliothèques ML/DL** : Scikit-learn, TensorFlow/Keras, Transformers (BERT),  **Ajoute USE LSTM,......**
 - **MLOps** : MLFlow, Git, GitHub Actions
-- **Backend** : FastAPI, Heroku
-- **Frontend** : Next.js / React
+- **Backend** : FastAPI
+- **Frontend** : Next.js / React   
 - **Monitoring** : Azure Application Insight
 - **Traitement texte** : NLTK, Word Embeddings
 
 ## 🏛️ Structure du projet
 
 ```
-📦 oc-ai-engineer-p07-analyse-sentiments-deep-learning/
+📦 mlflow_project/
 ┣━━ 📂 app/
 ┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
 ┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 data/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 docs/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 images/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 mlruns/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 models/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+┣━━ 📂 Notebook/
+┃   ┣━━ 📂 fastapi/                         # Backend API de prédiction
+┃   ┗━━ 📂 frontend/                        # Application Next.js
+
+
+
 ┃
 ┣━━ 📂 documentation/                       # Documentation du projet
 ┃   ┗━━ 📃 guide-app-insights.md            # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
