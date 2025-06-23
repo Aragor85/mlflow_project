@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/d83277a3b53549778f39590fb36fd6d3/artifacts
+deleted_time: 1750629667161
+end_time: 1750628782846
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: d83277a3b53549778f39590fb36fd6d3
+run_name: Bidirectional_LSTM
+run_uuid: d83277a3b53549778f39590fb36fd6d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750628734047
+status: 4
+tags: []
+user_id: Djamel

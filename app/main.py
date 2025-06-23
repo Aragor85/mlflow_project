@@ -1,4 +1,3 @@
-# app/main.py
 from fastapi import FastAPI
 from pydantic import BaseModel
 from app.model_utils import load_model, predict_sentiment
@@ -42,7 +41,13 @@ def read_root():
 @app.post("/predict")
 def predict(input: TextInput):
     prediction = predict_sentiment(model, use_model, input.Tweet)
-    return {"prediction": prediction}
+
+    label = "avis positif" if prediction == 1 else "avis négatif"
+
+    return {
+        "prediction": int(prediction),
+        "label": label
+    }
 
 @app.post("/feedback")
 def feedback(feedback: Feedback):

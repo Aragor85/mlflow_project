@@ -1,17 +1,17 @@
 grid_search:
   logistic_regression:
     C: [0.01, 0.1, 1.0, 10.0]
-    max_iter: [100, 500, 1000]
+    max_iter: [100, 500]
 
   random_forest:
-    n_estimators: [100, 200, 300]
+    n_estimators: [100, 200]
     max_depth: [10, 20, 30]
     random_state: [42]
 
   lightgbm:
-    n_estimators: [100, 200, 300]
+    n_estimators: [100, 200]
     learning_rate: [0.05, 0.1]
-    num_leaves: [31, 40, 50]
+    num_leaves: [30, 40]
     random_state: [42]
 
 use:
@@ -19,8 +19,8 @@ use:
   classifier_type: "mlp"
   mlp:
     dense_units: 128
-    dropout: 0.3
-    epochs: 5
+    dropout: 0.2
+    epochs: 1
     batch_size: 32
     learning_rate: 0.0001
 
@@ -32,12 +32,12 @@ lstm:
   lstm_units: 64
   dropout: 0.2
   batch_size: 32
-  epochs: 5
+  epochs: 4
 
 
 bert:
-  model_name: "bert-base-uncased"
+  model_name: "distilbert-base-uncased"
   max_sequence_length: 128
   batch_size: 32
-  epochs: 1
+  epochs: 4
   learning_rate: 0.005
