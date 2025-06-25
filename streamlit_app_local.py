@@ -1,8 +1,8 @@
 import streamlit as st
 import requests
 
-API_URL_PREDICT = "http://127.0.0.1:8000/predict"
-API_URL_FEEDBACK = "http://127.0.0.1:8000/feedback"
+API_URL_PREDICT = "http://localhost:8000/predict"
+API_URL_FEEDBACK = "http://localhost:8000/feedback"
 
 st.title("💬 Analyse de sentiments")
 
