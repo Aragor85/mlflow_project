@@ -1,6 +1,7 @@
 fastapi==0.95.2
 uvicorn[standard]==0.23.1
 pydantic==1.10.13
+streamlit
 mlflow==2.22.0
 tensorflow==2.13.0
 tensorflow-hub==0.14.0

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/643051683632115128/16c49cde8ddc40efa9d0447019f48817/artifacts
+end_time: 1750770294059
+entry_point_name: ''
+experiment_id: '643051683632115128'
+lifecycle_stage: active
+run_id: 16c49cde8ddc40efa9d0447019f48817
+run_name: RandomForest
+run_uuid: 16c49cde8ddc40efa9d0447019f48817
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750770255663
+status: 3
+tags: []
+user_id: Djamel

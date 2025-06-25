@@ -1,4 +1,4 @@
-name: Build and deploy Python app to Azure Web App - Module-7
+name: Build and deploy Python app to Azure Web App - Analyse-de-sentiments
 
 on:
   push:
@@ -54,14 +54,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_A415346F1F404B70A5ABFA26DA53F5A6 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_43945BBA75B6492DA124B7CFCAF9475A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_477F0A2C777C4B36BA34900A28BE5DA6 }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'Module-7'
+          app-name: 'Analyse-de-sentiments'
           slot-name: 'Production'
           package: release.zip
