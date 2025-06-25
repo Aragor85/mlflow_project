@@ -1,20 +1,20 @@
-# Utilise une image Python lÃ©gÃ¨re
+# Utilise une image Python légère
 FROM python:3.10-slim
 
-# DÃ©finir le rÃ©pertoire de travail
+# Définir le répertoire de travail
 WORKDIR /app
 
 # Copier les fichiers dans l'image Docker
 COPY . .
 
-# Installer les dÃ©pendances
+# Installer les dépendances
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Donner les permissions d'exÃ©cution au script de dÃ©marrage
+# Donner les permissions d'exécution au script de démarrage
 RUN chmod +x startup.sh
 
 # Exposer uniquement le port 80 pour Azure
 EXPOSE 80
 
-# Lancer le script de dÃ©marrage (FastAPI + Streamlit)
+# Lancer le script de démarrage (FastAPI + Streamlit)
 CMD ["./startup.sh"]
