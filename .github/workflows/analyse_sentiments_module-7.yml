@@ -7,6 +7,8 @@ on:
   workflow_dispatch:
 
 env:
+  ACR_NAME: module7
+  ACR_LOGIN_SERVER: module7.azurecr.io
   IMAGE_NAME: analyse-de-sentiments
   WEBAPP_NAME: Analyse-de-sentiments
 
@@ -21,21 +23,22 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}       # <— on passe ici le JSON strict
 
-      - name: Docker Login to ACR
+      - name: Login to Azure Container Registry (ACR)
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} \
-            --username ${{ secrets.ACR_USERNAME }} --password-stdin
+          az acr login --name ${{ env.ACR_NAME }}
 
       - name: Build Docker image
-        run: docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
+        run: |
+          docker build . --tag ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Push Docker image to ACR
-        run: docker push ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
+        run: |
+          docker push ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
 
       - name: Deploy to Azure Web App (via ACR)
         uses: azure/webapps-deploy@v3
         with:
-          app-name: ${{ env.WEBAPP_NAME }}
-          images: ${{ secrets.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
+          app-name:    ${{ env.WEBAPP_NAME }}
+          images:      ${{ env.ACR_LOGIN_SERVER }}/${{ env.IMAGE_NAME }}:latest
