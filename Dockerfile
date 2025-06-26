@@ -18,3 +18,4 @@ EXPOSE 80
 
 # Lancer le script de démarrage (FastAPI + Streamlit)
 CMD ["./startup.sh"]
+
