@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 
 env:
-  ACR_NAME: module7                   
+  ACR_NAME: module7
   ACR_LOGIN_SERVER: module7.azurecr.io
-  IMAGE_NAME: analyse-de-sentiments  # Nom de l'image Docker 
+  IMAGE_NAME: analyse-de-sentiments
   WEBAPP_NAME: Analyse-de-sentiments
 
 jobs:
