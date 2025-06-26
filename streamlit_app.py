@@ -1,11 +1,9 @@
 import streamlit as st
 import requests
-import os
 
-API_BASE = os.getenv("API_URL", "http://localhost:8000")
-API_URL_PREDICT = f"{API_BASE}/predict"
-API_URL_FEEDBACK = f"{API_BASE}/feedback"
-
+# URL de l'API FastAPI (utilise le nom DNS interne si Docker Compose, sinon localhost ou port 8000)
+API_URL_PREDICT = "http://localhost:8000/predict"
+API_URL_FEEDBACK = "http://localhost:8000/feedback"
 
 st.title("💬 Analyse de sentiments")
 
@@ -25,21 +23,25 @@ tweet = st.text_area("📝 Tweet", value=st.session_state.tweet_text)
 
 if st.button("Analyser"):
     if tweet.strip():
-        response = requests.post(API_URL_PREDICT, json={"text": tweet})
-        if response.status_code == 200:
-            result = response.json()
-            pred = result["prediction"]
-            label = "positif" if pred == 1 else "negatif"
-            emoji = "👍" if pred == 1 else "👎"
-            st.success(f"🔍 Prédiction : {emoji} **{label.upper()}**")
+        try:
+            response = requests.post(API_URL_PREDICT, json={"Tweet": tweet})
+            if response.status_code == 200:
+                result = response.json()
+                pred = result["prediction"]
+                label = "positif" if pred == 1 else "negatif"
+                emoji = "👍" if pred == 1 else "👎"
+                st.success(f"🔍 Prédiction : {emoji} **{label.upper()}**")
 
-            # Stocker en session
-            st.session_state.prediction_done = True
-            st.session_state.prediction = label
-            st.session_state.tweet_text = tweet
-            st.session_state.feedback_mode = None  # Reset feedback
-        else:
-            st.error(f"Erreur API : {response.status_code}")
+                # Stocker en session
+                st.session_state.prediction_done = True
+                st.session_state.prediction = label
+                st.session_state.tweet_text = tweet
+                st.session_state.feedback_mode = None  # Reset feedback
+
+            else:
+                st.error(f"❌ Erreur API : {response.status_code}")
+        except Exception as e:
+            st.error(f"❌ Erreur lors de la connexion à l'API : {e}")
     else:
         st.warning("⚠️ Veuillez entrer un tweet.")
 
@@ -47,7 +49,6 @@ if st.button("Analyser"):
 if st.session_state.prediction_done:
     st.write("### 📣 Donnez votre feedback sur cette prédiction :")
 
-    # Sélection oui/non
     feedback = st.radio(
         "Cette prédiction vous semble-t-elle correcte ?",
         options=["Oui", "Non"],
@@ -58,19 +59,25 @@ if st.session_state.prediction_done:
 
     if feedback == "Oui":
         if st.button("✅ Confirmer que c’est correct"):
-            requests.post(API_URL_FEEDBACK, json={
-                "Tweet": st.session_state.tweet_text,
-                "predicted_label": st.session_state.prediction,
-                "correct_label": st.session_state.prediction
-            })
-            st.success("Merci ! Votre validation a été enregistrée 🙌")
+            try:
+                requests.post(API_URL_FEEDBACK, json={
+                    "Tweet": st.session_state.tweet_text,
+                    "predicted_label": st.session_state.prediction,
+                    "correct_label": st.session_state.prediction
+                })
+                st.success("Merci ! Votre validation a été enregistrée 🙌")
+            except Exception as e:
+                st.error(f"Erreur d'envoi du feedback : {e}")
 
     elif feedback == "Non":
         correct = st.radio("🔁 Quelle est la bonne prédiction ?", ["positif", "negatif"])
         if st.button("📩 Envoyer la correction"):
-            requests.post(API_URL_FEEDBACK, json={
-                "Tweet": st.session_state.tweet_text,
-                "predicted_label": st.session_state.prediction,
-                "correct_label": correct
-            })
-            st.success("✅ Correction reçue, merci pour votre contribution.")
+            try:
+                requests.post(API_URL_FEEDBACK, json={
+                    "Tweet": st.session_state.tweet_text,
+                    "predicted_label": st.session_state.prediction,
+                    "correct_label": correct
+                })
+                st.success("✅ Correction reçue, merci pour votre contribution.")
+            except Exception as e:
+                st.error(f"Erreur d'envoi du feedback : {e}")
