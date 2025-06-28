@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/b6ed313b10ee4c1a8f906966345a4124/artifacts
+end_time: 1751138185514
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b6ed313b10ee4c1a8f906966345a4124
+run_name: LightGBM
+run_uuid: b6ed313b10ee4c1a8f906966345a4124
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751138169560
+status: 3
+tags: []
+user_id: Djamel

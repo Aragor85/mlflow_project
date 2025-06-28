@@ -1,7 +1,9 @@
 import mlflow
 import mlflow.sklearn
+import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, log_loss
+import os
 
 def train_use(config, X_train, X_test, y_train, y_test):
     with mlflow.start_run(run_name="USE + MLPClassifier", nested=True):
@@ -20,17 +22,17 @@ def train_use(config, X_train, X_test, y_train, y_test):
         acc = accuracy_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
         auc = roc_auc_score(y_test, y_proba)
-        ll = log_loss(y_test, y_proba)
+
 
         # Log des hyperparamètres et des métriques
         mlflow.log_params(mlp_params)
         mlflow.log_metrics({
             "accuracy": acc,
             "f1_score": f1,
-            "roc_auc": auc,
-            "log_loss": ll
+            "roc_auc": auc
         })
 
+        # Sauvegarde du modèle
         mlflow.sklearn.log_model(model, "model")
 
-        print(f"✅ USE + MLP terminé avec accuracy={acc:.2f} | F1={f1:.2f} | AUC={auc:.2f} | log_loss={ll:.2f}")
+        print(f"✅ USE + MLP terminé avec accuracy={acc:.2f} | F1={f1:.2f} | AUC={auc:.2f}")
