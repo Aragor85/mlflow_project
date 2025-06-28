@@ -1,14 +1,12 @@
 # Analyse de Sentiments grâce au Deep Learning avec l'approche MLOps
 
-> Cet article est disponible en ligne : [xxxxxxxxxxxxx](xxxxxxxxxxxxxxxx)
+> Cet article est disponible en ligne : [Blog](https://github.com/Aragor85/mlflow_project/blob/analyse_sentiments/docs/Analyse_de_sentiments.md)
 
 ![Les sentiments a travers les Tweet](images/Tweet.png)
 
 *Cet article a été rédigé dans le cadre du projet : Réalisez une analyse de sentiments grâce au Deep Learning du parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer). Les données utilisées sont issues du jeu de données open source [Sentiment140](https://www.kaggle.com/datasets/kazanova/sentiment140). Le code source complet est disponible sur [(https://github.com/Aragor85/mlflow_projectGitHub)]*
 
 > 🎓 OpenClassrooms • Parcours [AI Engineer](https://openclassrooms.com/fr/paths/795-ai-engineer) | 👋 *Étudiant* : Djamel FERGUEN
-
-![API: Analyse des sentiments a travers les Tweet](images/Tweet.png)
 
 
 ## 🌐 Contexte et problématique métier 
@@ -41,35 +39,36 @@ Cette mission implique également la mise en place d'une **démarche MLOps compl
 - **Bibliothèques ML/DL** : Scikit-learn, TensorFlow/Keras, Transformers (BERT),  **Ajoute USE LSTM,......**
 - **MLOps** : MLFlow, Git, GitHub Actions
 - **Backend** : FastAPI
-- **Frontend** : Next.js / React   
+- **Frontend** : Streamlit   
 - **Monitoring** : Azure Application Insight
 - **Traitement texte** : NLTK, Word Embeddings
 
 ## 🏛️ Structure du projet
 
 ```
+```
 📦 mlflow_project/
 ┣━━ 📂 app/
 ┃   ┣━━ 📂 model/                                   # Backend API de prédiction
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
+┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
+┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
+┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
+┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
+┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 
 ┣━━ 📂 .github/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 
 ┣━━ 📂 data/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 ┣━━ 📂 docs/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 ┣━━ 📂 images/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
+┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 ┣━━ 📂 mlruns/
 ┃   ┣━━ 📂 0/                                       # Backend API de prédiction
 ┃       ┗━━ 📂 frontend/                            # Application Next.js
@@ -93,10 +92,6 @@ Cette mission implique également la mise en place d'une **démarche MLOps compl
 
 - [📊 Notebook 1 : Analyse exploratoire des données]  link to notebook
 
-## 🧭 Guides
-
-- Help pour utilisation de l'API !!!! 
-
 ## 📑 Méthodologie et données
 
 ### Le jeu de données Sentiment140
@@ -110,23 +105,21 @@ Pour ce projet, nous avons utilisé le jeu de données open source Sentiment140,
 - **user** : l'utilisateur ayant posté le tweet
 - **text** : le contenu textuel du tweet
 
-J'ai choisi de réduire la taille du dataset a 16 000 tweets pour la suite du projet (configuration materiéls).
-
-!!!!  reduction de la taille du dataset 
+J'ai choisi de réduire la taille du dataset a 16 000 tweets pour la suite du projet en raison de limitations matérielles (notamment l'absence de GPU et une configuration uniquement sur CPU), l'entraînement s'est avéré extrêmement lent.
 
 ### Analyse exploratoire des données Sentiment140
 
 Notre analyse exploratoire a révélé des caractéristiques distinctives importantes entre les tweets positifs et négatifs :
 
-- XX%  de tweets positifs
-- XX%  de tweets négatifs
+- 50% de tweets positifs
+- 50% de tweets négatifs
 
 équilibrés pas de smote 
 
 ### Prétraitement des données textuelles
 
-Un petit paragraphe pour décrire et surtout vérification ce que j'ai fait dans le premier Notebook (stratégie de prétraitement en 3 ou 4 points clés) :   
-
+Dans ce projet, le prétraitement des données textuelles est une étape essentielle pour garantir des prédictions fiables. Il consiste à nettoyer les tweets en supprimant les caractères spéciaux, les URLs, les mentions et les stop words. Les textes sont ensuite normalisés (minuscules, lemmatisation) pour réduire la variance linguistique. Cette étape permet d’obtenir des représentations textuelles plus cohérentes avant l’entraînement des modèles de classification.
+ 
 ## 🧠 Approches de modélisation
 
 Pour répondre à la demande d'Air Paradis, nous avons développé et comparé 5 approches de modélisation distinctes, de la plus simple à la plus avancée.
@@ -135,7 +128,6 @@ Pour répondre à la demande d'Air Paradis, nous avons développé et comparé 5
 - Logistic regression
 - Randomforest
 - LightGBM
-
 
 Notre première approche s'est basée sur des techniques classiques de machine learning, combinant une vectorisation du texte avec un classifieur traditionnel :
 
@@ -151,57 +143,26 @@ Malgré sa simplicité, ce modèle a atteint une précision (accuracy) de XX% su
 
 ### Modèles avancé (réseaux de neurones avec word embeddings)
 
-- USE
-- Bidirectional_LSTM
-- distilbert-base-uncased
+**Universal Sentence Encoder (USE)** : Le modèle USE encode des phrases en vecteurs de grande dimension capturant leur sens global. Il est rapide, léger et bien adapté aux tâches de classification de texte avec peu de ressources.
 
-Pour notre deuxième approche, nous avons exploré les techniques de deep learning avec des embeddings de mots et des réseaux de neurones récurrents :
+**Bidirectional LSTM (BiLSTM)** Le BiLSTM traite les séquences de mots dans les deux directions (avant et arrière), capturant ainsi le contexte complet d’une phrase. Il est particulièrement performant pour comprendre la structure grammaticale des textes.
 
-Un petit paragraphe pour décrire le prétraitement en 3 ou 4 points clés) :   
+![Courbes de Loss & Accuracy](images/lstm_training_curves.png)
 
-Faut-il ajouter quelques morceau de code des differents models ? 
-
-
-L'architecture de notre modèle LSTM comprend :
-
-Un petit descrptif avec graphe Accuracy et loss ( Test 10 epoch et non pas 4 comme dans mlflow UI )
-Ajoute courbe d'apprentissage voir mlruns 
-
-**L'architecture de notre modèle USE comprend** :
-
-**L'architecture de notre modèle BERT comprend** :
-
-Les résultats de l'entraînement montrent une progression constante avec de l'accuracyes/48j9lz9bh84os9nkp2bz.png)
-
-Cette approche plus sophistiquée nous a permis d'atteindre une précision de 81,8% sur l'ensemble de validation, avec un score de 85,2% sur le jeu d'entraînement, surpassant ainsi le modèle simple.
-
-### Modèle BERT (approche transformer)
-
-Pour notre troisième approche, nous avons exploré l'état de l'art en NLP en utilisant BERT (Bidirectional Encoder Representations from Transformers) :
-
-1. **Modèle pré-entraîné** : nous avons utilisé DistilBERT, une version allégée et distillée de BERT, pour réduire les coûts de calcul tout en maintenant des performances élevées
-2. **Fine-tuning** : nous avons affiné le modèle sur notre jeu de données spécifique d'analyse de sentiments
-
-Pour cette approche, nous avons utilisé le modèle `DistilBertForSequenceClassification` de la bibliothèque Hugging Face, qui est spécifiquement conçu pour les tâches de classification de séquences textuelles :
-
-```S
-```
-
+**DistilBERT**: DistilBERT est une version plus légère de BERT, conservant 95 % de sa performance tout en étant plus rapide. Il est entraîné sur des milliards de mots, ce qui le rend très précis pour l’analyse de sentiments.
 
 ### Comparaison des performances des modèles
 
 Voici un récapitulatif des performances obtenues avec nos différentes approches :
 
-| Modèle | Précision (Accuracy) | F1-Score | Temps d'entraînement | Taille du modèle |
-|--------|----------------------|----------|---------------------|-----------------|
-| Régression Logistique + TF-IDF | xx,xx% | xx,xx | xx secondes | ~xx MB |
-| Randomforest + TF-IDF | xx,xx% | xx,xx | xx secondes | ~xx MB |
-| LightGBM + TF-IDF | xx,xx% | xx,xx | xx secondes | ~xx MB |
-| USE | xx,xx% | xx,xx | xx secondes (GPU) | ~xx MB |
-| Bidirectional_LSTM | xx,xx% | xx,xx | xx min | ~xx MB |
-| BERT | --% | -- | -- | ~--- MB |
-
-Pour le déploiement en production, nous avons retenu le modèle **USE**, qui offre le meilleur compromis entre performance et ressources requises.  et plus adapté à un déploiement sur une infrastructure Cloud gratuite.
+| Modèle | Accuracy |F1-Score | AUC | Temps d'entraînement |
+|--------|----------|---------|-----|----------------------|
+| Randomforest + TF-IDF | 0,71 | 0,73% | 0,79 | 55 secondes |
+| Régression Logistique + TF-IDF | 0,71  | 0,70 | 0,77 | 13 secondes |
+| LightGBM + TF-IDF | 0,73 | 0,74 | 0,81 | 16 secondes |
+| USE | 0,74 | 0,75 | 0,82 | 85 secondes |
+| Bidirectional_LSTM | 0,69 | 0,70 | 0,76 | 21,7 min |
+| BERT | -- | -- | -- | ~40 heures |
 
 ## ⚙️ Mise en œuvre du MLOps
 
@@ -224,17 +185,20 @@ Pour assurer une gestion efficace des expérimentations, nous avons utilisé [ML
 2. **Centralisation des modèles** : tous les modèles entraînés ont été stockés de manière centralisée avec leurs métadonnées
 3. **Visualisation** : l'interface utilisateur de MLFlow nous a permis de comparer visuellement les différentes expérimentations
 
-![photo mlflow UI avec adresse local 127.0.](images/xxxx.png)
+![Mlflow UI](images/mlflow_UI.png)
 
 Cette approche nous a permis de tracer l'évolution de nos modèles et de sélectionner le plus performant pour le déploiement.
+
+Pour le déploiement en production, nous avons retenu le modèle **USE**, qui offre le meilleur compromis entre performance et ressources requises. Et plus adapté à un déploiement sur une infrastructure Cloud gratuite.
 
 ## 💻 Interface utilisateur
 
 ### Architecture de l'application
 
-Pour l'interfacage j'ai choisi FastAPI en Backend ( pourquoi ? voir dans la recherche d'info word ) :
+Pour l'interfacage j'ai choisi FastAPI en Backend, car il est est rapide, moderne, et facile à intégrer avec des modèles ML grâce à son support natif.
 
-![Page /docs du serveur FastAPI](images/ printscreen FastAPI.png)
+
+### Fonctionnalités de l'interface Backend
 
 - **Backend (FastAPI)** :
    - API REST exposant le modèle d'analyse de sentiments
@@ -242,6 +206,15 @@ Pour l'interfacage j'ai choisi FastAPI en Backend ( pourquoi ? voir dans la rech
    - Système de feedback et de monitoring
    - Téléchargement automatique des artefacts du modèle depuis MLFlow
 
+  ![Page /docs du serveur FastAPI](images/BackEnd_FastAPi_1.png)
+  ![Page /docs du serveur FastAPI](images/BackEnd_FastAPi_2.png)
+
+
+### Fonctionnalités de l'interface utilisateur
+
+**Streamlit** est parfait pour l’interface utilisateur,car il permet de créer rapidement des applications web interactives en Python. Il s’intègre facilement avec les modèles ML pour afficher prédictions, graphiques et résultats en temps réel.
+
+  ![Interface_utilisateur](images/API_Streamlit_local.png)
 
 
 ## 🔄 Pipeline de déploiement continu
@@ -252,6 +225,7 @@ Pour automatiser le déploiement de notre modèle, nous avons mis en place un **
 2. **GitHub Actions** : automatisation des tests et du déploiement à chaque push sur la branche (analyse_sentiments)
 3. **Déploiement sur Azure** : plateforme Cloud pour héberger notre API de prédiction de sentiments
 
+
 ### Tests unitaires automatisés
 
 Pour garantir la fiabilité de notre solution, nous avons implémenté des **tests unitaires automatisés** couvrant les aspects critiques :
@@ -259,26 +233,23 @@ Pour garantir la fiabilité de notre solution, nous avons implémenté des **tes
 1. **Test du endpoint** : Vérifie que l'API répond correctement avec un code 200 et confirme que le statut retourné est "ok". Le modèle est chargé correctement.
 2. **Test du endpoint de prédiction** : S'assure que l'API traite correctement les requêtes POST sur `/predict`, accepte un texte à analyser et renvoie un résultat contenant les champs "sentiment".
 
-![photo test API et anacondapowershell et si besoin mettre le lien du realise ](images/xxxx.png)
-
 ### GitHub Actions 
 
 Le déploiement est entièrement automatisé grâce à **GitHub Actions** :
 
 1. **Déclenchement** : À chaque commit/push sur la branche(analyse_sentiments), GitHub Actions lance le workflow.
 2. **Tests automatisés** : Le workflow exécute tous les tests unitaires.
-3. **Déploiement conditionnel** : Uniquement si les tests réussissent, l'application est déployée automatiquement sur Azure .[Test API ](https://module-7-bgg7hvanhddthjh4.canadacentral-01.azurewebsites.net/docs)
+3. **Déploiement conditionnel** : Uniquement si les tests réussissent, l'application est déployée automatiquement sur Azure .[Test API ](https://analyse-de-sentiments.azurewebsites.net/)
 
 #### Création du workflow GitHub Actions
 
-Pour la création du workflow GitHub Actions, nous créons un fichier `.github/workflows/heroku-deploy.yml` à la racine dont voici le contenu :
-'''Mettre le code .yml important !!!!
-'''
+Pour la création du workflow GitHub Actions, nous créons un fichier `.github/workflows/analyse_sentiments_module-7.yml`
+
 #### Configuration des secrets GitHub
 
 Le workflow **GitHub Actions** a besoin d'accéder aux **variables d'environnement**. Nous avons donc renseigner les "secrets" nécessaires. Dans notre dépôt GitHub, nous allons dans "Settings" > "Secrets and variables" > "Actions", puis nous cliquons sur "New repository secret". Nous ajoutons les secrets suivants:
 
-![photo "New repository secret" dans Github](images/xxxx.png)
+!["New repository secret" dans Github](images/Github_Secrets_Actions.png)
 
 
 ### Déploiement sur Azure
@@ -288,7 +259,6 @@ Pour le déploiement de notre solution, nous avons choisi [Azure](https://azure.
 1. **Plan gratuit** : conforme à la demande de limiter les coûts pour ce prototype
 2. **Intégration avec GitHub** : facilite le déploiement continu avec GitHub Actions
 3. **Scalabilité** : possibilité d'évoluer si le projet est approuvé pour la production
-4. **Région Europe** : conformité avec les exigences de localisation des données
 
 #### Configuration Azure
 
@@ -303,11 +273,29 @@ Les variables d'environnement sur Azure incluent :
 - `RUN_ID` : Identifiant du run MLflow du modèle déployé
 - `INSTRUMENTATION_KEY` : Clé pour Azure voir xxxxxxx.yml
 
+#### Docker **Il faut parler 
+
+pour déployer une interface utilisateur Streamlit et tout le projet sur Azure :
+
+- **Isolation & portabilité** : un conteneur regroupe toute l'application (FastAPI + Streamlit + dépendances) dans un environnement cohérent et réutilisable.
+
+- **Déploiement** : ACR permet de stocker et gérer les images Docker, prêtes à être déployées sur Azure App Service.
+
+- **Compatibilité Cloud** : Azure App Service peut exécuter directement une image Docker depuis ACR, sans se soucier des dépendances.
+
+- **Déploiement automatisé** : GitHub Actions peut builder, pousser l’image sur ACR et la déployer automatiquement.
+
+- **Multi-services unifiés** : Streamlit (UI) et FastAPI (backend) peuvent tourner ensemble dans un même conteneur, sur un seul port exposé.
+
+- **Scalabilité & maintenance** : plus simple de mettre à jour ou répliquer l’application avec une nouvelle version du conteneur.
+
 ### Exemple d'exécution et déploiement réussis
 
-La capture d'écran suivante indique les **tests ont été passés avec succès** et que le déploiement est réussi sur **Azure**.
+La capture d'écran suivante indique que le déploiement est réussi sur **Azure**.
 
-![Capture d'écran d'un run GitHub Actions](images/xxxx.png)
+![GitHub Actions](images/Github_Build.png)
+![GitHub Actions](images/Github_deployment.png)
+
 
 ### Avantages de notre pipeline CI/CD
 
@@ -323,35 +311,32 @@ Notre pipeline de déploiement continu offre plusieurs avantages significatifs :
 
 ### Suivi des performances avec Azure Application Insights
 
-Afin de surveiller le comportement de notre modèle en production, nous avons intégré Azure Application Insights, un outil puissant d’analyse des performances. Cette solution nous offre :
+Afin d'analyser le comportement de notre modèle en production, nous avons intégré Azure Application Insights pour analyser les peformances en temps réel. Cette solution nous offre :
 
-  **Une télémétrie automatisée** : collecte en temps réel des métriques de performance de l’API.
+- collecte en temps réel des métriques de performance de l’API.
 
-  **Des événements personnalisés** : enregistrement spécifique des actions ou erreurs liées aux prédictions du modèle.
+- Enregistrement spécifique des actions ou erreurs liées aux prédictions du modèle.
 
-  **Des tableaux de bord interactifs** : pour visualiser et analyser les performances sur la durée.
-
-Cette intégration nous donne une vue complète et en temps réel du comportement de notre modèle.
+- Tableaux de bord interactifs pour visualiser et analyser les performances sur la durée.
 
 ### Collecte de feedback utilisateur
 
-Dans le cadre de notre démarche MLOps, nous avons mis en place un système structuré de retour utilisateur permettant d’évaluer la justesse des prédictions :
+Nous avons mis en place un système structuré de retour utilisateur permettant d’évaluer la  les prédictions si elles sont bonnes ou mauvaises :
 
-**Interface de validation** : chaque utilisateur peut confirmer ou infirmer la prédiction générée par le modèle.
+- Chaque utilisateur peut confirmer ou infirmer la prédiction générée par le modèle.
 
-**Collecte détaillée** : enregistrement du tweet, de la prédiction du modèle et la correction utilisateur si nécessaire.
+- L'enregistrement du tweet, de la prédiction du modèle et la correction utilisateur sur l'interface Streamlit si nécessaire.
 
-**Stockage unifié** : l’ensemble des retours est centralisé dans Azure Application Insights, facilitant l’analyse et l’amélioration continue du modèle.
+- L’ensemble des retours est centralisé dans Azure Application Insights, facilitant l’analyse et l’amélioration continue du modèle.
 
 Pour consulter les **feedbacks de tweets incorrectement prédits**, il suffit d'exécuter la commande suivante : 
 
-```kusto
-xxxxxxxxxxxx
-xxxxxxxxxxxxx
-xxxxxxxxxxxxxx
-```
 
-![Feedbacks de tweets incorrectement prédits ](images/dans-Applicationinsight-capture-image.png)
+![Capture d'écran d'un requête](images/Requêtes.png)
+------------------------------------------------------------
+
+------------------------------------------------------------
+![Feedbacks de tweets ](images/Requêtes_logs.png)
 
 Cette méthode permet de **constituer progressivement une base d'exemples difficiles à traiter**. Ces tweets mal classifiés sont très utiles car ils révèlent **les faiblesses spécifiques du modèle**. En les collectant systématiquement, on construit **un jeu de données ciblé sur les erreurs** du modèle. Cette méthode s'inscrit dans une démarche **d’apprentissage actif (active learning)**. Elle est plus **efficace** qu’un simple ajout aléatoire de données, car elle concentre l’amélioration du modèle sur les cas **réellement problématiques**.
 
@@ -363,27 +348,31 @@ Lorsqu’une alerte est générée, **une notification par email** est envoyée 
 Toutes les **alertes sont stocker** pour permettre une analyse a posteriori.
 Ce système de **monitoring proactif** permet à l’équipe d’intervenir avant que les erreurs ne se multiplient.
 
-![Capture de l'écran alertes de Azure Application Insights](images/dans-Applicationinsight-Alerte-capture-image.png)
+<table>
+  <tr>
+    <td><img src="images/Alert_email_1.png" width="350"/></td>
+    <td><img src="images/Alert_email_2.png" width="350"/></td>
+  </tr>
+  <tr>
+    <td align="center">Alerte - Email 1</td>
+    <td align="center">Alerte - Email 2</td>
+  </tr>
+</table>
+
 
 Pour améliorer le modéle,il faut **définir une periode** pour analyser les **tweets mal classifiés** pour détecter des motifs récurrents.
 Les exemples identifiés sont ensuite ajoutés au dataset d'entraînement pour **enrichir le modèle** en se basant sur les conversation concernant la compagnie Air Paradis.
 Enfin, **un réentraînement et déploiement automatisé** via le pipeline CI/CD.
 
-
-
 ## Conclusion
 
-### Résultats obtenus
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxx
-### Perspectives d'évolution
+Ce projet a permis de créer un prototype d’analyse de sentiments adapté aux besoins d’Air Paradis. Le modèle USE a atteint 82% de précision et est intégré dans une API déployée sur Azure.
 
-xxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxx
+Une interface ergonomique avec Streamlit facilite son usage pour les équipes marketing. De plus, un monitoring via Application Insights permet de suivre les prédictions et détecter les erreurs.
 
-### Avantages de l'utilisation des outils IA pour Air Paradis
-xxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxx
-xxxxxxxxxxx
+Ce système aide Air Paradis à détecter rapidement les signaux négatifs sur les réseaux sociaux et à protéger son image.
+
+Cet outil [API](https://analyse-de-sentiments.azurewebsites.net) renforce la réactivité de l'équipe de marketing de l'entreprise **Air Paradis**.
+
+En résumé, cette solution illustre le potentiel de l’IA et du MLOps pour améliorer la gestion de la e-réputation dans les réseaux sociaux.
+
