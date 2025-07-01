@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/60f1ded4d280459aa8b5b98c0940ff58/artifacts
+end_time: 1751326432305
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 60f1ded4d280459aa8b5b98c0940ff58
+run_name: Bidirectional_LSTM
+run_uuid: 60f1ded4d280459aa8b5b98c0940ff58
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751325220149
+status: 3
+tags: []
+user_id: Djamel

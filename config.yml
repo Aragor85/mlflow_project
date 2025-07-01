@@ -17,13 +17,15 @@ grid_search:
 use:
   model_url: "https://tfhub.dev/google/universal-sentence-encoder/4"
   classifier_type: "mlp"
-  mlp:
-    dense_units: 128
-    dropout: 0.2
-    epochs: 1
-    batch_size: 32
-    learning_rate: 0.0001
-
+  mlp_params:                 
+    hidden_layer_sizes: [256, 128, 64]
+    activation: relu
+    solver: adam
+    alpha: 0.0001
+    learning_rate_init: 0.001
+    early_stopping: true
+    max_iter: 200
+    random_state: 42
 
 lstm:
   max_num_words: 20000
@@ -32,8 +34,7 @@ lstm:
   lstm_units: 64
   dropout: 0.4
   batch_size: 32
-  epochs: 10
-
+  epochs: 7
 
 bert:
   model_name: "distilbert-base-uncased"
