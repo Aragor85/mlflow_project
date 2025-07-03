@@ -34,9 +34,9 @@ Cette mission implique également la mise en place d'une **démarche MLOps compl
 
 ## 🔧 Environnement technique
 
-- **Distribution** : Anaconda ver. XX.XX
+- **Distribution** : Anaconda
 - **Langages** : Python ver. 3.10
-- **Bibliothèques ML/DL** : Scikit-learn, TensorFlow/Keras, Transformers (BERT),  **Ajoute USE LSTM,......**
+- **Bibliothèques ML/DL** : Scikit-learn, TensorFlow/Keras, Transformers
 - **MLOps** : MLFlow, Git, GitHub Actions
 - **Backend** : FastAPI
 - **Frontend** : Streamlit   
@@ -47,50 +47,9 @@ Cette mission implique également la mise en place d'une **démarche MLOps compl
 
 ```
 ```
-📦 mlflow_project/
-┣━━ 📂 app/
-┃   ┣━━ 📂 model/                                   # Backend API de prédiction
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
-┃       ┗━━ 📃 analyse_sentiments_module-7.yml      # 
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
 
-┣━━ 📂 .github/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
+![Les sentiments a travers les Tweet](images/UML.png)
 
-┣━━ 📂 data/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┣━━ 📂 docs/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┣━━ 📂 images/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # 
-┣━━ 📂 mlruns/
-┃   ┣━━ 📂 0/                                       # Backend API de prédiction
-┃       ┗━━ 📂 frontend/                            # Application Next.js
-┃       ...
-        ┗━━ 📂 frontend/                            # Application Next.js
-┃       
-┣━━ 📂 models/
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-    ...  
-┃   ┗━━ 📃 analyse_sentiments_module-7.yml          # Guide de suivi des feedback utilisateur et des alertes avec Azure Application insights
-┗━━ 📂 notebooks/                                   # Notebooks Jupyter pour l'analyse et modèles
-    ┣━━ 📝 01_Analyse_exploratoire.ipynb            # Exploration et visualisation des données
-    
-┗━━ 📝 04_Modele_BERT.ipynb                         # DistilBERT pour analyse de sentiment
-┗━━ 📝 04_Modele_BERT.ipynb                         # DistilBERT pour analyse de sentiment
-┗━━ 📝 04_Modele_BERT.ipynb                         # DistilBERT pour analyse de sentiment
-┗━━ 📝 04_Modele_BERT.ipynb                         # DistilBERT pour analyse de sentiment
-┗━━ 📝 04_Modele_BERT.ipynb                         # DistilBERT pour analyse de sentiment
-
-## 📔 Notebooks du projet
-
-- [📊 Notebook 1 : Analyse exploratoire des données]  link to notebook
 
 ## 📑 Méthodologie et données
 
@@ -139,7 +98,7 @@ Cette approche présente plusieurs avantages :
 - Faible empreinte mémoire
 - Bonne interprétabilité des résultats
 
-Malgré sa simplicité, ce modèle a atteint une précision (accuracy) de XX% sur notre jeu de test, ce qui constitue une base solide pour la détection de sentiments.
+Malgré sa simplicité, ce modèle a atteint une précision (accuracy) de 73% sur notre jeu de test, ce qui constitue une base solide pour la détection de sentiments.
 
 ### Modèles avancé (réseaux de neurones avec word embeddings)
 
@@ -157,11 +116,11 @@ Voici un récapitulatif des performances obtenues avec nos différentes approche
 
 | Modèle | Accuracy |F1-Score | AUC | Temps d'entraînement |
 |--------|----------|---------|-----|----------------------|
-| Randomforest + TF-IDF | 0,71 | 0,73% | 0,79 | 55 secondes |
-| Régression Logistique + TF-IDF | 0,71  | 0,70 | 0,77 | 13 secondes |
-| LightGBM + TF-IDF | 0,73 | 0,74 | 0,81 | 16 secondes |
-| USE | 0,74 | 0,75 | 0,82 | 85 secondes |
-| Bidirectional_LSTM | 0,69 | 0,70 | 0,76 | 21,7 min |
+| Randomforest + TF-IDF | 0,71 | 0,73% | 0,79 | 34 secondes |
+| Régression Logistique + TF-IDF | 0,71  | 0,70 | 0,77 | 10 secondes |
+| LightGBM + TF-IDF | 0,73 | 0,74 | 0,81 | 13 secondes |
+| USE | 0,77 | 0,75 | 0,85 | 24 secondes |
+| Bidirectional_LSTM | 0,71 | 0,72 | 0,77 | 14,5 min |
 | BERT | -- | -- | -- | ~40 heures |
 
 ## ⚙️ Mise en œuvre du MLOps

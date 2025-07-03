@@ -1,0 +1,16 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/e126c54ec9684177b3c5fc3d67b805dc/artifacts
+deleted_time: 1751470355075
+end_time: 1751397089094
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: e126c54ec9684177b3c5fc3d67b805dc
+run_name: USE + MLPClassifier
+run_uuid: e126c54ec9684177b3c5fc3d67b805dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751397080361
+status: 4
+tags: []
+user_id: Djamel

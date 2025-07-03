@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Djamel/Desktop/Formation/module_7/mlflow_project/mlruns/0/f62cc5fe197e402fa2097251786faf34/artifacts
+end_time: 1751473005710
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f62cc5fe197e402fa2097251786faf34
+run_name: BERT_Classifier
+run_uuid: f62cc5fe197e402fa2097251786faf34
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1751471927081
+status: 4
+tags: []
+user_id: Djamel
