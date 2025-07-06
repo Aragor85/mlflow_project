@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import os
 
-API_BASE = os.getenv("API_URL", "http://localhost:8000")
+API_BASE = os.getenv("API_URL", "http://localhost:8001")
 API_URL_PREDICT = f"{API_BASE}/predict"
 API_URL_FEEDBACK = f"{API_BASE}/feedback"
 
@@ -25,7 +25,7 @@ tweet = st.text_area("📝 Tweet", value=st.session_state.tweet_text)
 
 if st.button("Analyser"):
     if tweet.strip():
-        response = requests.post(API_URL_PREDICT, json={"text": tweet})
+        response = requests.post(API_URL_PREDICT, json={"Tweet": tweet})
         if response.status_code == 200:
             result = response.json()
             pred = result["prediction"]
